@@ -47,5 +47,5 @@ console.log(f1.getSalario(), f2.getSalario())
 
 
  // funcao famosa que retorna um objeto...
- const fromJSON = JSON.parse('{"info": "Eu sou um Json"}')
+ const fromJSON = JSON.parse('{"info": "Eu sou um JSON"}')
  console.log(fromJSON.info)
