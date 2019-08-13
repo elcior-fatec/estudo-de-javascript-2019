@@ -20,4 +20,4 @@ console.log(Object.prototype)  // prototype eh o objeto que será herdado. Toda 
 console.log(MeuObjeto.prototype)
 
 // prototype sao atributos especificos de funcoes
-// __proto__ sao atributos exclusivos de objetos
+// __proto__ sao atributos exclusivos de objetos (uma funcao eh um objeto)
