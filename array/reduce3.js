@@ -1,12 +1,14 @@
-const aprovados = [
-	{nome: 'Ana', nota: 7.3, bolsista: false},
-	{nome: 'Rosana', nota: 9.2, bolsista: false},
-	{nome: 'Joana', nota: 9.8, bolsista: true},
-	{nome: 'Juliana', nota: 8.7, bolsista: false},
-]
+Array.prototype.reduce_2 = function(callback, valorInicial) {
+	const indiceInicial = valorInicial ? 0 : 1
+	let acumulador = valorInicial || this[0]
+	for(let i = indiceInicial; i < this.length; i++) {
+		acumulador = callback(acumulador, this[i], i, this)
+	}
+	return acumulador
+}
 
-// Desafio 1: Todos os alunos são bolsistas?
-const statusBolsa = a => a.bolsista
-const todosBolsistas = (resultado, bolsista) => resultado && bolsista
+const soma = (total, valor) => total + valor
+const nums = [1, 2, 3, 4, 5, 6]
 
-console.log(aprovados.map(statusBolsa).reduce_2(todosBolsistas))
+console.log(nums.reduce_2(soma, 21))
+console.log(nums.reduce_2(soma))
