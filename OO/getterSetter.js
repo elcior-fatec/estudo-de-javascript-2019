@@ -25,3 +25,10 @@ console.log(sequencia.valor, sequencia.valor)
 
 sequencia.valor = 10  // Sera validado pelo Setter e nao sera atribuido
 console.log(sequencia.valor, sequencia.valor)
+
+
+/**
+ * O JS sabe se a chamada é para um getter ou um setter pelo contexto lexico, já que ambas são semelhantes.
+ * Se o objeto invocar o metodo a ESQUERDA de uma ATRIBIÇÃO, ou isolado de uma atribuição, o metodo invocado será um GETTER.
+ * No entanto se a chamada ocorrer a DIREITA da ATRBUIÇÃO, então esta será um SETTER.
+ */
