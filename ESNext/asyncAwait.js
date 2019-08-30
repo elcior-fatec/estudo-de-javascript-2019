@@ -34,3 +34,4 @@ let obterAlunos = async () => {  // importante marcar a função com a palavra '
 obterAlunos()
 	.then(alunos => alunos.map(a => a.nome))
 	.then(nomes => console.log(nomes))
+	.catch(e => console.log(e.message))

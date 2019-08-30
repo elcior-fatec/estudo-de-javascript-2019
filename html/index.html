@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercícios HTML</title>
+</head>
+<body>
+	<!-- 
+		Antes de renderizar este arquivo instalar um http-server para o node.js
+	Comando: npm i --global http-server
+	Para iniciar o servidor, usar o comando: http-server <caminho-relativo-arquivo>
+	Mudar a porta (default: 8080) usar o comando: http-server -p <nova-porta>
+	-->
+	<header>
+		<h1>Exericícios HTML</h1>
+	</header>
+	<nav>
+		<!-- vamos trabalhar uma prpriedade personalizada no lugar do href -->
+		<a href wm-nav="exercicios/teste.html">00a - TESTE</a> |
+		<a href wm-nav="exercicios/tmp.html">00b - TMP</a>
+	</nav>
+	<section id="conteudo">
+		
+	</section>
+	<footer>
+		<br>
+		Curso de Web Moderno
+	</footer>
+	<script type="text/javascript">
+		document.querySelectorAll('[wm-nav]').forEach(link => {  // Obter um array com todos os links da página e aplicar alguma coisa em cada um deles
+			// armazena a referencia para o id 'conteudo'
+			const conteudo = document.getElementById('conteudo')
+
+			link.onclick = function(e) {  // quando clicar no link aplicar esta função que recebe 'e' (evento)
+				e.preventDefault()  // previne que o evento padrão ocorra (mudar a página ao clicar num link)
+				fetch(link.getAttribute('wm-nav'))  // esta é uma chamada Ajax que trabalha com Promise capturando o valor da tag personalizada 'wm-nav'. Após sua resolução avança...
+					.then(resp => resp.text())  // metodo .text() captura o conteúdo de uma página HTML e tmb retorna uma Promise. Após sua resolução avança...
+					.then(html => conteudo.innerHTML = html)  // insere o valor apontado pela variavel 'html' para dentro do elemento HTML 'conteudo'
+			}
+		})
+	</script>
+</body>
+</html>
