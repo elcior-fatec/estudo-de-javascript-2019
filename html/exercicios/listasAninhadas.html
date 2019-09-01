@@ -1,0 +1,53 @@
+<h1>Listas Aninhadas</h1>
+<ul class="tree">
+    <li>
+        <span wm-folder>backend</span>
+        <ul>
+            <li>
+                <span wm-folder>app </span>                
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder>config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>frontend</span>
+        <ul>
+            <li>
+                <span wm-folder>public</span>
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script>
+    // Primeiro criamos marcadores para os elementos que iremos interagir
+    // Depois, precisamos atribuir uma função a cada um destes elementos para capturar o clique
+    document.querySelectorAll('[wm-folder').forEach(folder => {
+        // Estabelecemos para a propriedade onclick de cada elemento uma função. O onclick torna-se um metodo dos objetos 'folder'
+        folder.onclick = function(e) {
+            // Uma constante irá armazenar os elementos aninhados, ou seja, os filhos diretos de cada 'folder'
+            const ul = folder.nextElementSibling
+            // armazenamos o estilo display destes elementos filhos para no passo seguinte fazermos a troca do estado da propriedade display
+            const visibilidade = ul.style.display
+            ul.style.display = visibilidade === 'none' ? 'block' : 'none'
+        }
+    })
+
+</script>
